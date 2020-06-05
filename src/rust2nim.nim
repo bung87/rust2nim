@@ -2,6 +2,8 @@
 
 import rust2nim/lexer
 import rust2nim/parser
+import rust2nim/token
+import nimly
 
 when isMainModule:
   var testLexer = myLexer.newWithString("1 + 42 * 101010")
@@ -13,3 +15,4 @@ when isMainModule:
   for token in testLexer.lexIter:
     ret.add(token.kind)
   echo $ret
+  

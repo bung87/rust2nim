@@ -31,11 +31,10 @@ niml myLexer[Token]:
     return TokenTrue()
   r"false":
     return TokenFalse()
-  ## you can use ``..`` instead of ``-`` in ``[]``.
-  # r"[a-z A-Z] [a-z A-Z 0-9 _]*| _ [a-z A-Z 0-9 _]+":
-  #   return TokenIdentifier(token.token)
-  # r"r#[a-z A-Z] [a-z A-Z 0-9 _]*| _ [a-z A-Z 0-9 _]+":
-  #   return RAW_IDENTIFIER(token)
+  r"[a-z A-Z] [a-z A-Z 0-9 _]*| _ [a-z A-Z 0-9 _]+":
+    return TokenIdentifier(token.token)
+  r"r#[a-z A-Z] [a-z A-Z 0-9 _]*| _ [a-z A-Z 0-9 _]+":
+    return RAW_IDENTIFIER(token.token.substring(2,token.token.high))
   r"as":
     return TokenAs()
   r"break":
@@ -108,7 +107,5 @@ niml myLexer[Token]:
     return TokenUnion()
   r"'static":
     return TokenStatic()
-  r"\s":
-    return IGNORE()
-  r"\.":
-    return DOT()
+  r"=":
+    return OpAssign()

@@ -5,14 +5,24 @@ variantp Token:
   MULTI
   NUM(val: int)
   DOT
+  Statement
+  Expr
+  Declaration
+  Expression
+  ExpressionEndingWithBlock
+  # EmptyStatement
   LPAREN
   RPAREN
+  SquareBracketL
+  SquareBracketR
+  BracketL
+  BracketR
   IGNORE
   TokenIf
   TokenElse
   TokenTrue
   TokenFalse
-  # TokenIdentifier(val:string)
+  TokenIdentifier(val:string)
   # RAW_IDENTIFIER(val:string)
   TokenAs
   TokenBreak
@@ -20,6 +30,7 @@ variantp Token:
   TokenContinue
   TokenCrate
   TokenEnum
+  TokenDefault
   TokenExtern
   TokenFn
   TokenFor
@@ -49,3 +60,4 @@ variantp Token:
   TokenAwait
   TokenDyn
   TokenUnion
+  OpAssign
